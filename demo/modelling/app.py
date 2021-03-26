@@ -54,8 +54,8 @@ def _save_versioned_estimator(
     estimator: BaseEstimator, hyperparams: t.Dict[str, t.Any], output_dir: str
 ):
     version = str(datetime.now(timezone.utc).replace(second=0, microsecond=0))
-    model_dir = os.path.join(output_dir, version)
-    os.makedirs(model_dir, exist_ok=True)
+    model_dir = os.path.join( output_dir)#, version)##por el S.O no nos toma el formato correcto
+    os.makedirs( model_dir, exist_ok=True)
     try:
         joblib.dump(estimator, os.path.join(model_dir, "model.joblib"))
         _save_yaml(hyperparams, os.path.join(model_dir, "params.yml"))

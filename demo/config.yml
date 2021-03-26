@@ -2,8 +2,8 @@ hyperparams:
   age-extractor: {}
   column-transformer: {}
   regressor:
-    n_estimators: 100
-    max_depth: null
+    n_estimators: 200
+    max_depth: 12
 
 data:
   filepath: ./dataset.csv
@@ -15,12 +15,15 @@ metrics:
 search:
   jobs: -1
   grid:
-    regressor:
+     age-extractor: {}
+     column-transformer: {}
+     regressor:
       n_estimators: [50, 100, 200]
       max_depth: [null, 10, 20, 30, 60]
 
 export:
-  output_dir: ./models
+  output_dir: ./models/
 
 reports:
   dir: ./reports
+
